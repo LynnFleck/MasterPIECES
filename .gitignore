@@ -1,0 +1,10 @@
+# node #
+########
+node_modules
+
+# dotenv #
+##########
+.env
+.eslintrc.js
+.eslintrc.json
+.DS_Store

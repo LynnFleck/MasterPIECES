@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 840">
+
+  <rect id="blue1" x="261" y="745.8" class="st0" width="89.7" height="74.2"/>
+  <rect id="blue2" x="692" y="96.3" class="st0" width="45" height="72.2"/>
+  <rect id="blue3" x="692" y="547.4" class="st0" width="128" height="178.3"/>
+  <rect id="blue4" x="82.7" y="669.6" class="st0" width="143.3" height="56.2"/>
+  <rect id="blue5" x="82.7" y="292" class="st0" width="143.3" height="220.4"/>
+  <rect id="blue6" x="483.5" y="20" class="st0" width="173.5" height="56.3"/>
+
+  <rect id="yellow1" x="576" y="547.4" class="st1" width="81" height="178.3"/>
+  <rect id="yellow2" x="261" y="547.4" class="st1" width="89.7" height="102.1"/>
+  <rect id="yellow3" x="692" y="358.4" class="st1" width="128" height="61.6"/>
+  <rect id="yellow4" x="576" y="292" class="st1" width="81" height="46.5"/>
+  <rect id="yellow5" x="20" y="96.3" class="st1" width="42.7" height="288.7"/>
+
+  <rect id="red1" x="370.7" y="745.8" class="st3" width="393.3" height="74.2"/>
+  <rect id="red2" x="20" y="745.8" class="st3" width="42.7" height="74.2"/>
+  <rect id="red3" x="370.7" y="358.4" class="st3" width="185.3" height="154"/>
+  <rect id="red4" x="757.1" y="20" class="st3" width="63" height="56.3"/>
+  <rect id="red5" x="261" y="96.3" class="st3" width="187.5" height="160.7" />
+
+  <path d="M0 0v840h840V0H0zM820 20v56.3h-62.9V20H820zM692 96.3h45v72.2h-45V96.3zM692 547.4h128v178.3H692V547.4zM692 512.4V440h128v72.4H692zM692 420v-61.6h128V420H692zM692 338.4V188.5h128v149.9H692zM757.1 168.5V96.3H820v72.2H757.1zM737.1 20v56.3h-45V20H737.1zM657 20v56.3H483.5V20H657zM576 512.4v-154h81v154H576zM657 547.4v178.3h-81V547.4H657zM576 338.4V292h81v46.5H576zM483.5 257V96.3H657V257H483.5zM350.7 669.6v56.2H261v-56.2H350.7zM261 649.6V547.4h89.7v102.1H261zM350.7 512.4H261V292h89.7V512.4zM261 257V96.3h187.5V257H261zM370.7 547.4H556v178.3H370.7V547.4zM370.7 512.4v-154H556v154H370.7zM370.7 338.4V292H556v46.5H370.7zM448.5 20v56.3H137.9V20H448.5zM82.7 512.4V292H226v220.4H82.7zM226 547.4v102.1H82.7V547.4H226zM82.7 669.6H226v56.2H82.7V669.6zM226 257H82.7V96.3H226V257zM117.9 20v56.3H82.7V20H117.9zM62.7 20v56.3H20V20H62.7zM62.7 405v107.4H20V405H62.7zM20 385V96.3h42.7V385H20zM62.7 547.4v102.1H20V547.4H62.7zM62.7 669.6v56.2H20v-56.2H62.7zM20 820v-74.2h42.7V820H20zM82.7 820v-74.2H226V820H82.7zM261 820v-74.2h89.7V820H261zM370.7 820v-74.2H764V820H370.7zM784 820v-74.2h36V820H784z"/>
+
+</svg>

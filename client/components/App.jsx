@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import request from 'superagent';
+import NavBar from './Navbar.jsx';
 
-class App extends React.Component {
+class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -32,6 +33,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
+      <NavBar />
         <p>{this.state.trivia.category}</p>
         <h1>{this.state.triviaQuestion}</h1>
         <p>{this.state.trivia.correct_answer}</p>

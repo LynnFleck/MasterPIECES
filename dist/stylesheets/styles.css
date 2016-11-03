@@ -1,7 +1,172 @@
+/*
+font-family: 'Bad Script', cursive;
+font-family: 'Lato', sans-serif;
+ */
+
 body {
-  background-color:  lightgoldenrodyellow;
+  background-color: #999;
+  font-family: 'Lato', sans-serif;
 }
-p {
-  font-size: 30px;
-  color: black;
+
+/***********LFC*********** NAV BAR styles ***********LFC***********/
+
+.navbar-default {
+  background-color: #333333;
+  border-color: #222222;
+}
+.navbar-brand img {
+  height: 100%;
+}
+button.navbar-right {
+  margin: 10px;
+}
+.navbar-right a {
+  text-decoration: none;
+}
+
+/***********LFC*********** HOME-MONDRIAN styles ***********LFC***********/
+
+ svg {
+  background-color: #fff;
+}
+.st0{
+/*   fill: #0066CC; */
+  fill: #999
+}
+.st1{
+  /* fill: #FFE400; */
+  fill: #999
+}
+.st3{
+  /* fill: #CC0000; */
+  fill: #999
+}
+.dreary {
+  fill:  pink;
+}
+
+#blue1:hover,
+#blue2:hover,
+#blue3:hover,
+#blue4:hover,
+#blue5:hover,
+#blue6:hover {
+  fill: #0066CC;
+}
+#red1:hover,
+#red2:hover,
+#red3:hover,
+#red4:hover,
+#red5:hover {
+  fill: #CC0000;
+}
+#yellow1:hover,
+#yellow2:hover,
+#yellow3:hover,
+#yellow4:hover,
+#yellow5:hover {
+  fill: #FFE400;
+}
+
+
+/***********LFC*********** GLOBAL MODAL styles ***********LFC***********/
+
+.modal,
+.modal-footer {
+  text-align: center;
+  color: #fff;
+}
+p#modal-close {
+  position: absolute;
+  color: rgba(255,255,255, .7);
+  right: 0;
+}
+.modal-content {
+  background-color: #cc0000;
+}
+.modal-title {
+  font-weight: 900;
+  font-family: 'Lato', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .3em;
+  font-size: 28px;
+}
+.modal h2 {
+  font-size: 28px;
+  font-family: 'Bad Script', cursive;
+  line-height: 1.5em;
+  margin: 20px;
+}
+.modal p {
+  letter-spacing: .1em;
+  font-size: 16px;
+  padding: 0 30px;
+}
+.modal a {
+  text-decoration: none;
+}
+
+/***********LFC*********** HOME MODAL styles ***********LFC***********/
+
+#home-modal {
+  background: rgba(0,0,0,.5);
+}
+
+/***********LFC*********** QUESTION MODAL styles ***********LFC***********/
+
+.modal-title {
+  font-family: 'Bad Script', cursive;
+  text-transform: none;
+  letter-spacing: 0;
+}
+#answers.btn-group {
+  display: block;
+}
+#answers label.btn.btn-default {
+  display: block;
+  float: none;
+  margin: 10px;
+  font-size: 18px;
+}
+#answers label.btn.btn-default.active,
+#answers label.btn.btn-default:hover
+ {
+  background: #ffe400;
+  font-weight: 900;
+}
+
+
+/***********LFC*********** POPOVER QUESTIONS ***********LFC***********/
+
+.popover-answers label {
+    display: block;
+    padding: 10px;
+    border: 1px dotted black;
+    margin: 5px 0;
+}
+
+/***********LFC*********** MEDIA queries ***********LFC***********/
+
+@media (min-width: 768px) {
+
+  .modal-dialog {
+      margin: 90px auto;
+  }
+}
+
+/* Extra small devices (phones, less than 768px) */
+
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: @screen-sm-min) {
+
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: @screen-md-min) {
+
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: @screen-lg-min) {
 }
