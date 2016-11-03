@@ -5,38 +5,39 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      colors: [],
-      trivia: [],
+      trivia: {},
+      triviaQuestion: '',
+      incorrectAnswer: [],
     };
-    this.getColors = this.getColors.bind(this);
     this.getTrivia = this.getTrivia.bind(this);
-  }
-  getColors() {
-    request.get('/api/colors')
-    .then((colorData) => {
-      this.setState({ colors: colorData.body.colors });
-    });
   }
   getTrivia() {
     request.get('/api/general')
     .then((triviaData) => {
       triviaData = JSON.parse(triviaData.text);
-      this.setState({ trivia: triviaData.results[0] });
+      this.setState({
+        trivia: triviaData.results[0],
+        triviaQuestion: triviaData.results[0].question
+          .replace(/&#039;/g, "'")
+          .replace(/&quot;/g, '"')
+          .replace(/&Uuml;/g, '¨')
+          ,
+        incorrectAnswer: triviaData.results[0].incorrect_answers,
+       });
     });
   }
   componentDidMount() {
-    this.getColors();
     this.getTrivia();
-    setInterval(this.getTrivia, 5000);
   }
   render() {
     return (
       <div>
-        <h1 style={{ color: `#${this.state.colors[1]}` }}>
-          WEeeeeeeeeeeeeeeee!
-        </h1>
-        <p>Category: {this.state.trivia.category } </p>
-
+        <p>{this.state.trivia.category}</p>
+        <h1>{this.state.triviaQuestion}</h1>
+        <p>{this.state.trivia.correct_answer}</p>
+        <p>{this.state.incorrectAnswer[0]}</p>
+        <p>{this.state.incorrectAnswer[1]}</p>
+        <p>{this.state.incorrectAnswer[2]}</p>
       </div>
     );
   }
