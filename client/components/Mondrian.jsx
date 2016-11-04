@@ -23,9 +23,6 @@ class Mondrian extends Component {
     this.setState({
       imageNumber: this.state.imageNumber-1,
     });
-    if (this.state.imageNumber !== 0) {
-      console.log('keep playing!')
-    }
   }
   componentDidMount() {
     this.paintEverythingDrab();

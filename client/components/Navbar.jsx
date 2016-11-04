@@ -15,7 +15,7 @@ class NavBar extends Component {
             </Navbar.Brand>
           </Navbar.Header>
           <Button bsStyle="default" className="navbar-right">
-            <Link to="mondrian">Start A New Game </Link>
+            <Link to="/mondrian">Start A New Game </Link>
           </Button>
         </Navbar>
     )
