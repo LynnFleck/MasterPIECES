@@ -23,6 +23,9 @@ class Mondrian extends Component {
     this.setState({
       imageNumber: this.state.imageNumber-1,
     });
+    if (this.state.imageNumber !== 0) {
+      console.log('keep playing!')
+    }
   }
   componentDidMount() {
     this.paintEverythingDrab();
@@ -34,7 +37,6 @@ class Mondrian extends Component {
         <div className="container col-xs-12 col-md-4">
           <QuestionPanel
             removeDrab={this.removeDrabClass}
-
             />
         </div>
         <div className="container col-xs-12 col-md-8">

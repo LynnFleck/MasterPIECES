@@ -10,7 +10,7 @@ const Routes = () => {
       <Router history={hashHistory}>
         <Route path="/" component={App}>
           <IndexRoute component={Home} />
-          <Route path="/mondrian" component={Mondrian} />
+          <Route path="mondrian" component={Mondrian} />
         </Route>
       </Router>
     );
