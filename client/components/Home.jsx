@@ -8,7 +8,6 @@ class Home extends Component {
     super();
     this.svgClickEvents = this.svgClickEvents.bind(this);
     this.sendNewQuestion = this.sendNewQuestion.bind(this);
-
   }
 
   svgClickEvents() {

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
 import request from 'superagent';
 
-class QuestionModal extends Component {
+class QuestionPanel extends Component {
   constructor() {
     super();
     this.state = {
@@ -14,19 +14,23 @@ class QuestionModal extends Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.getTrivia = this.getTrivia.bind(this);
-    this.isCorrect = this.isCorrect.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-
+    this.isAnswerCorrect = this.isAnswerCorrect.bind(this);
   }
-  isCorrect() {
+  handleSubmit() {
+    this.isAnswerCorrect();
+  }
+  isAnswerCorrect() {
+    let guess = document.querySelector('label.active > input');
+    this.setState({ guessedAnswer: guess.value })
+    if (guess.value === this.state.trivia.correct_answer) {
+      this.props.removeDrab();
+      this.getTrivia();
+    } else {
+      console.log('not quite. Let\'s try again')
+    }
     //get value from handle submit for chosen button
     //compare to correct answer
     //set state for iscorrect
-  }
-  handleSubmit() {
-    //get value of active button
-
-    console.log(this.state.triviaQuestion)
   }
 
   getTrivia() {
@@ -82,10 +86,10 @@ class QuestionModal extends Component {
           )
         }
       return (
-              <div>
-                <h5>{this.state.trivia.category}</h5>
+              <div className="answer-section">
+                <h5><em>Category: </em>{this.state.trivia.category}</h5>
+                <h5><em>Difficulty: </em>{this.state.trivia.difficulty}</h5>
                 <h1>{this.state.triviaQuestion}</h1>
-                <p>Select one answer, then click Submit</p>
                 <div id="answers" className="btn-group" data-toggle="buttons">
                   {triviaAnswers}
                   {multiAnswers}
@@ -96,4 +100,4 @@ class QuestionModal extends Component {
     }
   }
 
-  export default QuestionModal;
+  export default QuestionPanel;

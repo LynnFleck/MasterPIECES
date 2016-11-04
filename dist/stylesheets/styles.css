@@ -5,34 +5,43 @@ font-family: 'Lato', sans-serif;
 
 body {
   background-color: #999;
+  color: #fff;
   font-family: 'Lato', sans-serif;
   text-align: center;
-  color: #fff;
 }
 
 h1 {
-  font-weight: 400;
   font-size: 30px;
+  font-weight: 400;
+  margin-bottom: 20px;
 }
 h2 {
-  font-size: 28px;
   font-family: 'Bad Script', cursive;
+  font-size: 28px;
   line-height: 1.5em;
   margin: 20px;
 }
 h5 {
-  font-size: 14px;
-  text-transform: uppercase;
+  font-size: 10px;
   font-weight: 900;
   letter-spacing: .5em;
+  text-transform: uppercase;
+}
+p {
+  font-family: 'Bad Script', cursive;
 }
 a {
   text-decoration: none;
 }
 .btn-danger {
-    background-color: #CC0000;
-    border-color: #CC0000;
+  background-color: #CC0000;
+  border-color: #CC0000;
 }
+p em {
+  color: #ffe400;
+  font-style: normal;
+}
+
 /***********LFC*********** NAV BAR styles ***********LFC***********/
 
 .navbar-default {
@@ -55,19 +64,16 @@ button.navbar-right {
   background-color: #fff;
 }
 .st0{
-/*   fill: #0066CC; */
-  fill: #999
+  fill: #0066CC;
 }
 .st1{
-  /* fill: #FFE400; */
-  fill: #999
+  fill: #FFE400;
 }
 .st3{
-  /* fill: #CC0000; */
-  fill: #999
+  fill: #CC0000;
 }
-.dreary {
-  fill:  pink;
+.drab {
+  fill: #999;
 }
 
 #blue1:hover,
@@ -93,37 +99,7 @@ button.navbar-right {
   fill: #FFE400;
 }
 
-
-/***********LFC*********** GLOBAL MODAL styles ***********LFC***********/
-
-.modal,
-.modal-footer {
-
-}
-p#modal-close {
-  position: absolute;
-  color: rgba(255,255,255, .7);
-  right: 0;
-}
-.modal-content {
-  background-color: #cc0000;
-}
-.modal-title {
-  font-weight: 900;
-  font-family: 'Lato', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: .3em;
-  font-size: 28px;
-}
-
-
-/***********LFC*********** HOME MODAL styles ***********LFC***********/
-
-#home-modal {
-  background: rgba(0,0,0,.5);
-}
-
-/***********LFC*********** QUESTION MODAL styles ***********LFC***********/
+/***********LFC*********** QUESTION PANEL styles ***********LFC***********/
 
 input[type=radio] {
   display: none;
@@ -146,7 +122,9 @@ label.btn.btn-default {
   background: #ffe400;
   font-weight: 900;
 }
-
+.answer-section button.btn.btn-danger {
+    margin-bottom: 20px;
+}
 
 
 

@@ -1,3 +1,11 @@
+
+var el = document.getElementById('#foo');
+el[i].className += ' my-class';
+
+
+
+
+
         <p>{this.state.trivia.category}</p>
         <h1>{this.state.triviaQuestion}</h1>
         <p>{this.state.trivia.correct_answer}</p>
@@ -24,6 +32,20 @@
   sendNewQuestion() {
     this.getTrivia();
     console.log('sent for a new question')
+      // if answered correctly
+        // popup states answer is correct
+        // change color of block to vivid
+      // else popup states answer is wrong, try again
+      // close popup
+  }
+
+
+svgClickEvents() {
+    document.querySelector('#red5').addEventListener('click', this.sendNewQuestion);
+  }
+
+  sendNewQuestion() {
+    prompt('answer the questions')
       // if answered correctly
         // popup states answer is correct
         // change color of block to vivid
