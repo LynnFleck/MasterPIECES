@@ -16,8 +16,7 @@ class Home extends Component {
   }
 
   sendNewQuestion() {
-    this.getTrivia();
-    console.log('answer the questions')
+    prompt('answer the questions')
       // if answered correctly
         // popup states answer is correct
         // change color of block to vivid
