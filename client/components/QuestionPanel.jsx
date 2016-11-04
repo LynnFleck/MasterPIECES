@@ -14,25 +14,37 @@ class QuestionPanel extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.getTrivia = this.getTrivia.bind(this);
     this.isAnswerCorrect = this.isAnswerCorrect.bind(this);
+    this.addWrongAnswerClass = this.addWrongAnswerClass.bind(this);
+    this.removeWrongAnswerClass = this.removeWrongAnswerClass.bind(this);
     this.removeActiveClass = this.removeActiveClass.bind(this);
   }
   handleSubmit() {
     this.isAnswerCorrect();
   }
   isAnswerCorrect() {
-    let guess = document.querySelector('label.active > input');
-    this.setState({ guessedAnswer: guess.value })
-    console.log(this.state.guessedAnswer);
-    if (guess.value === this.state.trivia.correct_answer) {
+    const guess = document.querySelector('label.active > input');
+    const marquee = document.querySelector('.submission-response');
+    this.setState({ guessedAnswer: guess.value });
+    if (guess.value == null) {
+      marquee.innerHTML = "please select an answer";
+    } else if (guess.value === this.state.trivia.correct_answer) {
+      marquee.innerHTML = "bingo!";
       this.props.removeDrab();
       this.removeActiveClass();
+      this.removeWrongAnswerClass();
       this.getTrivia();
     } else {
-      console.log('not quite. Let\'s try again')
+      marquee.innerHTML = "Sorry, try again";
+      this.addWrongAnswerClass();
+      this.removeActiveClass();
     }
-    //get value from handle submit for chosen button
-    //compare to correct answer
-    //set state for iscorrect
+
+  }
+  addWrongAnswerClass() {
+    $("label.active").addClass('previous-answer');
+  }
+  removeWrongAnswerClass() {
+    $("label").removeClass('previous-answer');
   }
   removeActiveClass() {
     $("label").removeClass('active');
@@ -79,12 +91,12 @@ class QuestionPanel extends Component {
         answerChoices = (
           <div>
             <label className="btn btn-default">
-              <input type="radio" name="options" id="option3"
+              <input type="radio" name="options" id="option1"
                      autoComplete="off" value={this.state.trivia.correct_answer}/>
                      {this.state.trivia.correct_answer}
             </label>
             <label className="btn btn-default">
-              <input type="radio" name="options" id="option3"
+              <input type="radio" name="options" id="option2"
                      autoComplete="off" value={this.state.incorrectAnswer[0]}/>
                      {this.state.incorrectAnswer[0]}
             </label>
@@ -103,13 +115,17 @@ class QuestionPanel extends Component {
       }
       return (
             <div className="answer-section">
-              <h5>{this.state.trivia.category}</h5>
+              <div className="results-info">
+                <h5>{this.state.trivia.category}</h5>
+                <h5><em>Difficulty: </em>{this.state.trivia.difficulty}</h5>
+                <h2>Number Left: {this.props.numberLeft}/16</h2>
+              </div>
               <h1>{this.state.triviaQuestion}</h1>
+              <h4 className="submission-response">Please select an answer:</h4>
               <div id="answers" className="btn-group" data-toggle="buttons">
                 {answerChoices}
               </div>
               <Button bsStyle="danger" onClick={this.handleSubmit}>Submit</Button>
-              <h5><em>Difficulty: </em>{this.state.trivia.difficulty}</h5>
             </div>
             )
     }

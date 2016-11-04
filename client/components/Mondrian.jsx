@@ -34,6 +34,7 @@ class Mondrian extends Component {
         <div className="container col-xs-12 col-md-4">
           <QuestionPanel
             removeDrab={this.removeDrabClass}
+            numberLeft={this.state.imageNumber}
             />
         </div>
         <div className="container col-xs-12 col-md-8">

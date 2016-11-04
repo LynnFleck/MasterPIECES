@@ -125,6 +125,10 @@ label.btn.btn-default {
 .answer-section button.btn.btn-danger {
     margin-bottom: 20px;
 }
+.previous-answer {
+  background-color: #ccc;
+  color: #999;
+}
 
 
 
