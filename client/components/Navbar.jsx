@@ -14,7 +14,7 @@ class NavBar extends Component {
               <a href="/"><img alt="Masterpiece Trivia" src="../../svg/masterpieces-logo.svg" /></a>
             </Navbar.Brand>
           </Navbar.Header>
-          <Button bsStyle="default" className="navbar-right"><Link to="mondrian">Start A New Game</Link></Button>
+          <Button bsStyle="default" className="navbar-right"><Link to="/">Start A New Game</Link></Button>
         </Navbar>
     )
   }
