@@ -18,11 +18,16 @@ h1 {
   padding: 10px;
   letter-spacing: .2em;
 }
+h1 em {
+  font-family: 'Bad Script', cursive;
+  letter-spacing: 0;
+}
 h2 {
-  font-weight: 300;
-  font-size: 28px;
+  font-weight: 900;
+  font-size: 20px;
   line-height: 1.5em;
   margin: 20px;
+  color: #ffe400;
 }
 h5 {
   font-size: 10px;
@@ -30,27 +35,19 @@ h5 {
   letter-spacing: .5em;
   text-transform: uppercase;
 }
+h5 em {
+  color: #666;
+  font-style: normal;
+}
 p {
   font-family: 'Bad Script', cursive;
 }
 a {
   text-decoration: none;
 }
-.navbar-right a em  {
-  font-family: serif;
-  text-transform: none;
-  font-family: 'Bad Script', cursive;
-}
-.navbar-right a {
-  text-transform: uppercase;
-}
 .btn-danger {
   background-color: #CC0000;
   border-color: #CC0000;
-}
-h5 em {
-  color: #ffe400;
-  font-style: normal;
 }
 
 /***********LFC*********** NAV BAR styles ***********LFC***********/
@@ -67,6 +64,27 @@ button.navbar-right {
 }
 .navbar-right a {
   text-decoration: none;
+  text-transform: uppercase;
+}
+.navbar-right a em  {
+  font-family: serif;
+  text-transform: none;
+  font-family: 'Bad Script', cursive;
+}
+
+/***********LFC*********** INTRO SECTION styles ***********LFC***********/
+.intro-section h2 {
+  color: #fff;
+  font-weight: 300;
+  font-size: 30px;
+}
+.intro-section button {
+  text-transform: uppercase;
+  margin-bottom: 50px;
+}
+.intro-section button a {
+  text-decoration: none;
+  color: #fff;
 }
 
 /***********LFC*********** HOME MONDRIAN styles ***********LFC***********/
@@ -74,40 +92,20 @@ button.navbar-right {
  svg {
   background-color: #fff;
 }
-.st0{
+.st0,
+.st0:hover{
   fill: #0066CC;
 }
-.st1{
+.st1,
+.st1:hover {
   fill: #FFE400;
 }
-.st3{
+.st3,
+.st3:hover{
   fill: #CC0000;
 }
 .drab {
   fill: #999;
-}
-
-#blue1:hover,
-#blue2:hover,
-#blue3:hover,
-#blue4:hover,
-#blue5:hover,
-#blue6:hover {
-  fill: #0066CC;
-}
-#red1:hover,
-#red2:hover,
-#red3:hover,
-#red4:hover,
-#red5:hover {
-  fill: #CC0000;
-}
-#yellow1:hover,
-#yellow2:hover,
-#yellow3:hover,
-#yellow4:hover,
-#yellow5:hover {
-  fill: #FFE400;
 }
 
 /***********LFC*********** QUESTION PANEL styles ***********LFC***********/
@@ -140,13 +138,25 @@ label.btn.btn-default {
   background-color: #ccc;
   color: #999;
 }
-
-
+.submission-response {
+  border-radius: 4px;
+  padding: 10px;
+  margin: 10px;
+  background-color: #CC0000;
+  position: absolute;
+  top: 15%;
+  width: 70%;
+  left: 15%;
+  height: 70%;
+  z-index: 1000;
+}
 
 /***********LFC*********** MEDIA queries ***********LFC***********/
 
 @media (min-width: 768px) {
-
+  .intro-section {
+    margin-top: 70px;
+  }
 }
 
 /* Extra small devices (phones, less than 768px) */

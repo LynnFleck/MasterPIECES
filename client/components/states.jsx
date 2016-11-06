@@ -1,18 +1,8 @@
+  svgClickEvents() {
+    document.querySelector('#mondrian5').addEventListener('click', this.sendNewQuestion);
+  }
 
-var el = document.getElementById('#foo');
-el[i].className += ' my-class';
-
-
-
-
-
-        <p>{this.state.trivia.category}</p>
-        <h1>{this.state.triviaQuestion}</h1>
-        <p>{this.state.trivia.correct_answer}</p>
-        <p>{this.state.incorrectAnswer[0]}</p>
-        <p>{this.state.incorrectAnswer[1]}</p>
-        <p>{this.state.incorrectAnswer[2]}</p>
-
+    imageNumber = imageNumber.sort(function() { return 0.5 - Math.random() });
 
    this.isCorrect = this.isCorrect.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);

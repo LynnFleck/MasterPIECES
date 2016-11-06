@@ -14,6 +14,8 @@ class QuestionPanel extends Component {
       incorrectAnswers: [],
       guessedAnswer: '',
       allAnswers: [],
+      numberCompleted: 0,
+      percentCompleted: 0,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.isAnswerCorrect = this.isAnswerCorrect.bind(this);
@@ -31,18 +33,25 @@ class QuestionPanel extends Component {
     const marquee = document.querySelector('.submission-response');
     this.setState({ guessedAnswer: guess.value });
     if (guess.value == null) {
-      marquee.innerHTML = "please select an answer";
     } else if (guess.value === this.state.correctAnswer) {
-      marquee.innerHTML = "bingo!";
+      marquee.innerHTML = "That's correct!";
       this.props.removeDrab();
       this.removeActiveClass();
       this.removeWrongAnswerClass();
       this.getTrivia();
+      const newNumberCompleted = this.state.numberCompleted + 1;
+      this.setState({ numberCompleted: newNumberCompleted });
+      const newPercentCompleted = (this.state.numberCompleted + 1) / 16 * 100;
+      this.setState({ percentCompleted: newPercentCompleted });
+      console.log(this.state.percentCompleted);
     } else {
       marquee.innerHTML = "Sorry, try again";
       this.addWrongAnswerClass();
       this.removeActiveClass();
     }
+  }
+  reponsePopUp() {
+
   }
   addWrongAnswerClass() {
     $("label.active").addClass('previous-answer');
@@ -62,8 +71,8 @@ class QuestionPanel extends Component {
         type: triviaData.results[0].type,
         difficulty: triviaData.results[0].difficulty,
         question: triviaData.results[0].question
-          .replace(/&#039;/gi, "'")
-          .replace(/&quot;/gi, '"')
+          .replace(/&#039;|&rsquo;|&lsquo;/gi, "'")
+          .replace(/&quot;|&ldquo;|&rdquo;/gi, '"')
           .replace(/&Uuml;/gi, '¨')
           .replace(/&amp;/gi, '&')
           .replace(/&scaron;/gi, 'š')
@@ -72,10 +81,11 @@ class QuestionPanel extends Component {
           .replace(/&Sigma;/gi, 'Σ')
           .replace(/&Pi;/gi, 'π')
           .replace(/&Nu;/gi, 'Ν')
+          .replace(/&Eacute;/gi, 'É')
           ,
         correctAnswer: triviaData.results[0].correct_answer
-          .replace(/&#039;/gi, "'")
-          .replace(/&quot;/gi, '"')
+          .replace(/&#039;|&rsquo;|&lsquo;/gi, "'")
+          .replace(/&quot;|&ldquo;|&rdquo;/gi, '"')
           .replace(/&Uuml;/gi, '¨')
           .replace(/&amp;/gi, '&')
           .replace(/&scaron;/gi, 'š')
@@ -84,6 +94,7 @@ class QuestionPanel extends Component {
           .replace(/&Sigma;/gi, 'Σ')
           .replace(/&Pi;/gi, 'π')
           .replace(/&Nu;/gi, 'Ν')
+          .replace(/&Eacute;/gi, 'É')
           ,
         incorrectAnswers: triviaData.results[0].incorrect_answers,
        });
@@ -91,8 +102,6 @@ class QuestionPanel extends Component {
         setTimeout(this.scrambleAnswers, 500);
       }
     });
-
-
   }
   scrambleAnswers() {
     let randomIndex = Math.floor(Math.random() * 4);
@@ -148,17 +157,29 @@ class QuestionPanel extends Component {
       }
       return (
             <div className="answer-section">
+              <h5>progress</h5>
+              <div className="progress">
+                <div className="progress-bar" role="progressbar"
+                     aria-valuenow="0" aria-valuemin="0"
+                     aria-valuemax="100" style={{minWidth: 3 +'em', width: this.state.percentCompleted + '%'}}>
+                  {this.state.numberCompleted}/16
+                </div>
+              </div>
               <div className="results-info">
+                <h4>Next Question:</h4>
                 <h5>{this.state.category}</h5>
                 <h5><em>Difficulty: </em>{this.state.difficulty}</h5>
-                <h2>Number Left: {this.props.numberLeft}/16</h2>
               </div>
-              <h2>{this.state.question}</h2>
-              <h4 className="submission-response">Please select an answer:</h4>
-              <div id="answers" className="btn-group" data-toggle="buttons">
-                {answerChoices}
+              <div className="question-box">
+                <h2>{this.state.question}</h2>
+                <div id="answers" className="btn-group" data-toggle="buttons">
+                  {answerChoices}
+                </div>
+                <Button bsStyle="danger" onClick={this.handleSubmit}>Submit</Button>
+                <div className="submission-response">
+                  <h4></h4>
+                </div>
               </div>
-              <Button bsStyle="danger" onClick={this.handleSubmit}>Submit</Button>
             </div>
       )
     }

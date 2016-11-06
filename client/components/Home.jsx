@@ -4,25 +4,6 @@ import IntroPanel from './IntroPanel.jsx';
 
 
 class Home extends Component {
-  constructor() {
-    super();
-    this.svgClickEvents = this.svgClickEvents.bind(this);
-    // this.sendNewQuestion = this.sendNewQuestion.bind(this);
-  }
-
-  svgClickEvents() {
-    document.querySelector('#mondrian5').addEventListener('click', this.sendNewQuestion);
-  }
-
-  sendNewQuestion() {
-    prompt('this is not being used yet, just here for testing')
-      // if answered correctly
-        // popup states answer is correct
-        // change color of block to vivid
-      // else popup states answer is wrong, try again
-      // close popup
-  }
-
   render() {
     return (
       <div className="container">
@@ -33,7 +14,6 @@ class Home extends Component {
           <ReactSVG
             path={'./svg/mondrian.svg'}
             className={"home-mondrian"}
-            callback={this.svgClickEvents}
           />
         </div>
       </div>

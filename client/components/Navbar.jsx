@@ -11,7 +11,9 @@ class NavBar extends Component {
         <Navbar>
           <Navbar.Header>
             <Navbar.Brand>
-              <a href="/"><img alt="Masterpiece Trivia" src="../../svg/masterpieces-logo.svg" /></a>
+              <a href="/">
+                <img alt="Masterpiece Trivia" src="../../svg/masterpieces-logo.svg" />
+              </a>
             </Navbar.Brand>
           </Navbar.Header>
           <Button bsStyle="default" className="navbar-right">
@@ -21,10 +23,8 @@ class NavBar extends Component {
             <Link to="puzzle"><em>solve a </em>Puzzle</Link>
           </Button>
           <Button bsStyle="default" className="navbar-right">
-            <Link to="mondrian"><em>make a </em>Mondrian</Link>
+            <Link to="mondrian"><em>paint a </em>Mondrian</Link>
           </Button>
-
-
         </Navbar>
     )
   }
