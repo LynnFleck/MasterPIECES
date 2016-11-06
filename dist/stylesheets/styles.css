@@ -14,9 +14,12 @@ h1 {
   font-size: 30px;
   font-weight: 400;
   margin-bottom: 20px;
+  border: 1px solid #fff;
+  padding: 10px;
+  letter-spacing: .2em;
 }
 h2 {
-  font-family: 'Bad Script', cursive;
+  font-weight: 300;
   font-size: 28px;
   line-height: 1.5em;
   margin: 20px;
@@ -32,6 +35,14 @@ p {
 }
 a {
   text-decoration: none;
+}
+.navbar-right a em  {
+  font-family: serif;
+  text-transform: none;
+  font-family: 'Bad Script', cursive;
+}
+.navbar-right a {
+  text-transform: uppercase;
 }
 .btn-danger {
   background-color: #CC0000;
