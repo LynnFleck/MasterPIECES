@@ -116,6 +116,16 @@ input[type=radio] {
 label.btn.btn-default {
   white-space: normal;
 }
+.question-box h3 {
+  display: none;
+  background: #FFE400;
+  border-radius: 4px;
+  color: #CC0000;
+  font-size: 18px;
+  font-weight: 400;
+  margin: 10px;
+  padding: 10px;
+}
 #answers.btn-group {
   display: block;
 }
@@ -139,6 +149,7 @@ label.btn.btn-default {
   color: #999;
 }
 .submission-response {
+  display: none;
   border-radius: 4px;
   padding: 10px;
   margin: 10px;
@@ -153,25 +164,32 @@ label.btn.btn-default {
 
 /***********LFC*********** MEDIA queries ***********LFC***********/
 
+/* Extra small devices (phones, less than 768px) */
+@media (max-width: 768px) {
+  .mondrian-panel h1 {
+    display: none;
+  }
+  .mondrian-panel .results-info {
+    display: none;
+  }
+  .navbar-brand img {
+    width: 80%;
+    margin: 0 10%;
+  }
+  .navbar-brand {
+    float: none;
+  }
+}
+
+/* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   .intro-section {
     margin-top: 70px;
   }
 }
 
-/* Extra small devices (phones, less than 768px) */
-
-
-/* Small devices (tablets, 768px and up) */
-@media (min-width: @screen-sm-min) {
-
-}
-
 /* Medium devices (desktops, 992px and up) */
-@media (min-width: @screen-md-min) {
 
-}
 
 /* Large devices (large desktops, 1200px and up) */
-@media (min-width: @screen-lg-min) {
-}
+

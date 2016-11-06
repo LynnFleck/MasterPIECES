@@ -30,7 +30,7 @@ class Mondrian extends Component {
   render() {
     return (
       <div className="container">
-        <div className="container col-xs-12 col-md-5">
+        <div className="mondrian-panel container col-xs-12 col-md-5">
           <h1><em>paint a </em>Mondrian</h1>
           <QuestionPanel
             removeDrab={this.removeDrabClass}

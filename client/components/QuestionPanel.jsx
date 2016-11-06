@@ -29,29 +29,43 @@ class QuestionPanel extends Component {
     this.isAnswerCorrect();
   }
   isAnswerCorrect() {
+    const qBox = document.querySelector('.question-box h3');
+    qBox.style.display = "none";
     const guess = document.querySelector('label.active > input');
-    const marquee = document.querySelector('.submission-response');
-    this.setState({ guessedAnswer: guess.value });
-    if (guess.value == null) {
-    } else if (guess.value === this.state.correctAnswer) {
-      marquee.innerHTML = "That's correct!";
-      this.props.removeDrab();
-      this.removeActiveClass();
-      this.removeWrongAnswerClass();
-      this.getTrivia();
-      const newNumberCompleted = this.state.numberCompleted + 1;
-      this.setState({ numberCompleted: newNumberCompleted });
-      const newPercentCompleted = (this.state.numberCompleted + 1) / 16 * 100;
-      this.setState({ percentCompleted: newPercentCompleted });
-      console.log(this.state.percentCompleted);
+    if (guess === null) {
+      qBox.innerHTML = "Please select an answer";
+      qBox.style.display = "block";
+      return;
     } else {
-      marquee.innerHTML = "Sorry, try again";
-      this.addWrongAnswerClass();
-      this.removeActiveClass();
+      this.setState({ guessedAnswer: guess.value });
+      if (guess.value === this.state.correctAnswer) {
+        this.props.removeDrab();
+        this.removeActiveClass();
+        this.removeWrongAnswerClass();
+        this.getTrivia();
+        const newNumberCompleted = this.state.numberCompleted + 1;
+        this.setState({ numberCompleted: newNumberCompleted });
+        const newPercentCompleted = (this.state.numberCompleted + 1) / 16 * 100;
+        this.setState({ percentCompleted: newPercentCompleted });
+        console.log(this.state.percentCompleted);
+      } else {
+        this.addWrongAnswerClass();
+        this.removeActiveClass();
+      }
     }
   }
   reponsePopUp() {
-
+    const guess = document.querySelector('label.active > input');
+    const marquee = document.querySelector('.submission-response h4');
+    const popUpBox = document.querySelector('.submission-response');
+    if (guess.value == null) {
+      popUpBox.style.display = "block";
+      marquee.innerHTML = "Please select an answer";
+    } else if (guess.value == this.state.correctAnswer) {
+      marquee.innerHTML = "Wahoo! That's correct!";
+    } else {
+      marquee.innerHTML = "Sorry, try again";
+    }
   }
   addWrongAnswerClass() {
     $("label.active").addClass('previous-answer');
@@ -172,6 +186,7 @@ class QuestionPanel extends Component {
               </div>
               <div className="question-box">
                 <h2>{this.state.question}</h2>
+                <h3></h3>
                 <div id="answers" className="btn-group" data-toggle="buttons">
                   {answerChoices}
                 </div>
