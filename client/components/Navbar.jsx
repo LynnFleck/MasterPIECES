@@ -20,9 +20,6 @@ class NavBar extends Component {
             <Link to="jungle">Jungle<em> fun</em></Link>
           </Button>
           <Button bsStyle="default" className="navbar-right">
-            <Link to="puzzle"><em>solve a </em>Puzzle</Link>
-          </Button>
-          <Button bsStyle="default" className="navbar-right">
             <Link to="mondrian"><em>paint a </em>Mondrian</Link>
           </Button>
         </Navbar>

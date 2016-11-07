@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
 import request from 'superagent';
 
-class QuestionPanel extends Component {
+class JunglePanel extends Component {
   constructor() {
     super();
     this.state = {
@@ -45,13 +45,13 @@ class QuestionPanel extends Component {
         qBox.style.color = "#fff";
         qBox.style.display = "block";
         $( ".question-box h3" ).fadeOut(2500);
-        this.props.removeDrab();
+        this.props.showAnimal();
         this.removeActiveClass();
         this.removeWrongAnswerClass();
         this.getTrivia();
         const newNumberCompleted = this.state.numberCompleted + 1;
         this.setState({ numberCompleted: newNumberCompleted });
-        const newPercentCompleted = (this.state.numberCompleted + 1) / 16 * 100;
+        const newPercentCompleted = (this.state.numberCompleted + 1) / 9 * 100;
         this.setState({ percentCompleted: newPercentCompleted });
         this.checkForWinner(newNumberCompleted);
       } else {
@@ -74,7 +74,7 @@ class QuestionPanel extends Component {
     $("label").removeClass('active');
   }
   checkForWinner(total) {
-    if (total == 16) {
+    if (total == 9) {
         const resultsBox = document.querySelector('.results-info');
         resultsBox.style.display = 'none';
         const winnerBox = document.querySelector('.question-box');
@@ -83,7 +83,7 @@ class QuestionPanel extends Component {
     }
   }
   getTrivia() {
-    request.get('/api/general')
+    request.get('/api/animals')
     .then((triviaData) => {
       triviaData = JSON.parse(triviaData.text);
       this.setState({
@@ -182,7 +182,7 @@ class QuestionPanel extends Component {
                 <div className="progress-bar" role="progressbar"
                      aria-valuenow="0" aria-valuemin="0"
                      aria-valuemax="100" style={{minWidth: 3 +'em', width: this.state.percentCompleted + '%'}}>
-                  {this.state.numberCompleted}/16
+                  {this.state.numberCompleted}/9
                 </div>
               </div>
               <div className="results-info">
@@ -203,4 +203,4 @@ class QuestionPanel extends Component {
     }
   }
 
-  export default QuestionPanel;
+  export default JunglePanel;

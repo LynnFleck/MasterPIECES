@@ -88,7 +88,8 @@ button.navbar-right {
 
 /***********LFC*********** HOME MONDRIAN styles ***********LFC***********/
 
- svg {
+ svg.game-mondrian,
+ svg.home-mondrian {
   background-color: #fff;
 }
 .st0,
@@ -166,6 +167,13 @@ label.btn.btn-default {
   font-weight: 300;
 }
 
+
+/***********LFC*********** JUNGLE ILLUS styles ***********LFC***********/
+
+.hidden-animal {
+  display: none;
+}
+
 /***********LFC*********** MEDIA queries ***********LFC***********/
 
 /* Extra small devices (phones, less than 768px) */
@@ -193,7 +201,9 @@ label.btn.btn-default {
 }
 
 /* Medium devices (desktops, 992px and up) */
-
+svg.injected-svg.game-jungle {
+    max-height: 90vh;
+}
 
 /* Large devices (large desktops, 1200px and up) */
 
