@@ -24,6 +24,7 @@ class QuestionPanel extends Component {
     this.removeActiveClass = this.removeActiveClass.bind(this);
     this.getTrivia = this.getTrivia.bind(this);
     this.scrambleAnswers = this.scrambleAnswers.bind(this);
+    this.checkForWinner = this.checkForWinner.bind(this);
   }
   handleSubmit() {
     this.isAnswerCorrect();
@@ -39,6 +40,11 @@ class QuestionPanel extends Component {
     } else {
       this.setState({ guessedAnswer: guess.value });
       if (guess.value === this.state.correctAnswer) {
+        qBox.innerHTML = "Wahoo! That's correct!";
+        qBox.style.backgroundColor = "#cc0000";
+        qBox.style.color = "#fff";
+        qBox.style.display = "block";
+        $( ".question-box h3" ).fadeOut(2500);
         this.props.removeDrab();
         this.removeActiveClass();
         this.removeWrongAnswerClass();
@@ -47,24 +53,15 @@ class QuestionPanel extends Component {
         this.setState({ numberCompleted: newNumberCompleted });
         const newPercentCompleted = (this.state.numberCompleted + 1) / 16 * 100;
         this.setState({ percentCompleted: newPercentCompleted });
-        console.log(this.state.percentCompleted);
+        this.checkForWinner(newNumberCompleted);
       } else {
+        qBox.innerHTML = "Sorry, try again.";
+        qBox.style.backgroundColor = "#000";
+        qBox.style.color = "#999";
+        qBox.style.display = "block";
         this.addWrongAnswerClass();
         this.removeActiveClass();
       }
-    }
-  }
-  reponsePopUp() {
-    const guess = document.querySelector('label.active > input');
-    const marquee = document.querySelector('.submission-response h4');
-    const popUpBox = document.querySelector('.submission-response');
-    if (guess.value == null) {
-      popUpBox.style.display = "block";
-      marquee.innerHTML = "Please select an answer";
-    } else if (guess.value == this.state.correctAnswer) {
-      marquee.innerHTML = "Wahoo! That's correct!";
-    } else {
-      marquee.innerHTML = "Sorry, try again";
     }
   }
   addWrongAnswerClass() {
@@ -75,6 +72,15 @@ class QuestionPanel extends Component {
   }
   removeActiveClass() {
     $("label").removeClass('active');
+  }
+  checkForWinner(total) {
+    if (total == 16) {
+        const resultsBox = document.querySelector('.results-info');
+        resultsBox.style.display = 'none';
+        const winnerBox = document.querySelector('.question-box');
+        winnerBox.className = 'winner';
+        winnerBox.innerHTML = "Bravo! You've created a MasterPIECE!";
+    }
   }
   getTrivia() {
     request.get('/api/general')
@@ -125,6 +131,7 @@ class QuestionPanel extends Component {
   }
   componentDidMount() {
     this.getTrivia();
+    console.log(`didMount: ` + this.state.numberCompleted);
   }
   render() {
     let answerChoices;
@@ -191,9 +198,6 @@ class QuestionPanel extends Component {
                   {answerChoices}
                 </div>
                 <Button bsStyle="danger" onClick={this.handleSubmit}>Submit</Button>
-                <div className="submission-response">
-                  <h4></h4>
-                </div>
               </div>
             </div>
       )

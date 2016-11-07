@@ -50,4 +50,3 @@ class Mondrian extends Component {
 
 export default Mondrian;
 
-
